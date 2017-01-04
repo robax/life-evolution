@@ -149,21 +149,15 @@
                 }
             }
         }
-		var loop = false;
   
         function start() {
-			loop = true;
-			loopIt();
+			setInterval(tick, 500);
         }
 
-		function loopIt() {
-			while(loop){
-				tick();
-				draw();
-				setTimeout(function(){}, 3000);
-			}
-		}
-        
+        function stop() {
+            clearInterval();
+        }
+
         function toggle(tableCell) {
             if(tableCell.style.backgroundColor == "blue"){
 				tableCell.value = 0;
@@ -185,10 +179,6 @@
             }
         }
 
-        function stop() {
-            loop = false;
-        }
-
         function tick() {
             for (var i = 0; i < table.rows.length; i++) {
                 for (var j = 0; j < table.rows[i].cells.length; j++) {
@@ -204,6 +194,7 @@
 					}
 				}
 			}
+			draw();
         }
 
 		function draw(){
