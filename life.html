@@ -149,13 +149,14 @@
                 }
             }
         }
-  
+		var intervalID; 
+ 
         function start() {
-			setInterval(tick, 500);
+			intervalID = setInterval(tick, 500);
         }
 
         function stop() {
-            clearInterval();
+            clearInterval(intervalID);
         }
 
         function toggle(tableCell) {
